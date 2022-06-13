@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "ByDprqoO205t5Vyo0nGfuoIyNbesCuL97NCn5XLNnmutwzcV/Lihal9vKttAqCcPkmKEuTbtoUEkj2g/44LGWw==",
+  "success": true,
+  "projectFilePath": "C:\\Vivek\\DS\\PhoneMarketing\\PhoneMarketing\\PhoneMarketing.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0-preview.4.22229.4\\microsoft.extensions.configuration.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.configuration.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\7.0.0-preview.4.22229.4\\microsoft.extensions.configuration.fileextensions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.configuration.json\\7.0.0-preview.4.22229.4\\microsoft.extensions.configuration.json.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0-preview.4.22229.4\\microsoft.extensions.dependencyinjection.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.dependencyinjection.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.fileproviders.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\7.0.0-preview.4.22229.4\\microsoft.extensions.fileproviders.physical.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\7.0.0-preview.4.22229.4\\microsoft.extensions.filesystemglobbing.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0-preview.4.22229.4\\microsoft.extensions.primitives.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\system.text.encodings.web\\7.0.0-preview.4.22229.4\\system.text.encodings.web.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\vivek_anil\\.nuget\\packages\\system.text.json\\7.0.0-preview.4.22229.4\\system.text.json.7.0.0-preview.4.22229.4.nupkg.sha512"
+  ],
+  "logs": []
+}
