@@ -2,7 +2,7 @@
 
 using CsvHelper;
 using CsvHelper.Configuration;
-using PhoneMarketing.Models;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 using System.Text;
 
@@ -10,31 +10,45 @@ namespace PhoneMarketing.FileManager
 {
     internal class CsvFileService : IFileService
     {
-         
+        private ILogger<CsvFileService> _logger;
+        public CsvFileService(ILogger<CsvFileService> logger)
+        {
+            _logger = logger;
+        } 
 
-        public List<string> ReadFile(string fileName)
+        public async Task<List<string>> ReadFile(string fileName)
         {
             //Take Data from file
            List<string> list = new List<string>();
-            var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
+            try
             {
-                Encoding = Encoding.UTF8, 
-                Delimiter = "," ,
-                HasHeaderRecord=false,
-                IgnoreBlankLines=true
-            };
-            using (TextReader fileReader = File.OpenText(fileName))
-            {
-
-                var csv = new CsvReader(fileReader, configuration);
-                while (csv.Read())
+                var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    for (int i = 0; csv.TryGetField<string>(i, out string value); i++)
+                    Encoding = Encoding.UTF8,
+                    Delimiter = ",",
+                    HasHeaderRecord = false,
+                    IgnoreBlankLines = true
+                };
+
+                using (TextReader fileReader = File.OpenText(fileName))
+                {
+
+                    var csv = new CsvReader(fileReader, configuration);
+
+                    while (await csv.ReadAsync())
                     {
-                        list.Add(value);
+                        for (int i = 0; csv.TryGetField<string>(i, out string value); i++)
+                        {
+                            list.Add(value);
+                        }
                     }
+
                 }
-                
+            }
+            catch (Exception ex)
+            {
+                string message = $"Exception in Class = CsvFileService, Method = ReadFile, Message = {ex.Message}";
+                _logger.LogError(message, ex.ToString());
             }
             return list;
         }

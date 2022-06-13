@@ -22,10 +22,19 @@ namespace PhoneMarketing.Services
             _fileService = fileService;
            InputFileName = _configuration["InputFile"].ToString();
         }
-        public List<string> GetData()
+        public async Task<List<string>> GetData()
         {
-            var FullFileName = AppDomain.CurrentDomain.BaseDirectory + InputFileName;
-            List<string> list = _fileService.ReadFile(FullFileName);
+            List<string> list = new List<string>();
+            try
+            {
+                var FullFileName = AppDomain.CurrentDomain.BaseDirectory + InputFileName;
+                list = await _fileService.ReadFile(FullFileName);
+            }
+            catch (Exception ex)
+            {
+                string message = $"Exception in Class = FileReader, Method = GetData, Message = {ex.Message}";
+                _logger.LogError(message, ex.ToString());
+            }
             return list;
         }
     }

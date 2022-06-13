@@ -822,11 +822,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Vivek\\DS\\PhoneMarketing\\PhoneMarketing\\PhoneMarketing.csproj",
+      "projectUniqueName": "C:\\Vivek\\Philips\\PhoneMarketing\\PhoneMarketing\\PhoneMarketing.csproj",
       "projectName": "PhoneMarketing",
-      "projectPath": "C:\\Vivek\\DS\\PhoneMarketing\\PhoneMarketing\\PhoneMarketing.csproj",
+      "projectPath": "C:\\Vivek\\Philips\\PhoneMarketing\\PhoneMarketing\\PhoneMarketing.csproj",
       "packagesPath": "C:\\Users\\vivek_anil\\.nuget\\packages\\",
-      "outputPath": "C:\\Vivek\\DS\\PhoneMarketing\\PhoneMarketing\\obj\\",
+      "outputPath": "C:\\Vivek\\Philips\\PhoneMarketing\\PhoneMarketing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vivek_anil\\AppData\\Roaming\\NuGet\\NuGet.Config",

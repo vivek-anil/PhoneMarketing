@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="DataSource\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -8,6 +8,6 @@ namespace PhoneMarketing.Services
 {
     public interface IInputService
     {
-        List<string> GetData();
+       Task <List<string>> GetData();
     }
 }

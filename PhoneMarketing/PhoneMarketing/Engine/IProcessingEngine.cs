@@ -8,6 +8,6 @@ namespace PhoneMarketing.Engine
 {
     public interface IProcessingEngine
     {
-        public Dictionary<string, string> Process(List<string> inputData);
+        Task<Dictionary<string, string>> Process(List<string> inputData);
     }
 }

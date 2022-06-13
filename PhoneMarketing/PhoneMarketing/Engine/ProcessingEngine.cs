@@ -9,7 +9,7 @@ namespace PhoneMarketing.Engine
         private ILogger<ProcessingEngine> _logger;
         private IConfiguration _configuration;
         private readonly Dictionary<char, string> PhoneMap;
-        private  string DictionaryNames;
+        private string DictionaryNames;
         private IFileService _fileService;
         public ProcessingEngine(IConfiguration configuration, ILogger<ProcessingEngine> logger, IFileService fileService)
         {
@@ -28,21 +28,20 @@ namespace PhoneMarketing.Engine
             PhoneMap.Add('8', "TUV");
             PhoneMap.Add('9', "WXYZ");
         }
-        
-        public  Dictionary<string, string> Process(List<string> nums)
+
+        public async Task<Dictionary<string, string>> Process(List<string> nums)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
-            List<string> dictNames = GetDictionaryNames();
-            foreach (string num in nums)
+            List<string> names;
+            try
             {
-                List<string> names = dictNames;
-                var phone = num.Split("-")?.GetValue(1)?.ToString();
-                if (phone != null && (phone.Contains('0') || phone.Contains('1')))
+                List<string> dictNames = await GetDictionaryNames();
+
+
+                nums.ForEach(num =>
                 {
-                    result.Add(num, string.Empty);
-                }
-                else
-                {
+                    names = dictNames;
+                    var phone = num.Split("-")?.GetValue(1)?.ToString();
                     int k = 0;
                     names = names.FindAll(x => x.Length == phone?.Length);
                     for (int i = 0; i < phone?.Length; i++)
@@ -51,11 +50,10 @@ namespace PhoneMarketing.Engine
 
                         if (n != '0' && n != '1')
                         {
-                            var filter = names.FindAll(c => PhoneMap[n].Contains(Convert.ToChar(c.Substring(k, 1))));
+                            var filter = names.FindAll(c => PhoneMap[n].Contains(c.Substring(k, 1)));
                             if (filter.Count > 0)
                             {
                                 names = filter;
-
                             }
                             else
                             {
@@ -63,24 +61,37 @@ namespace PhoneMarketing.Engine
                                 break;
                             }
                         }
-
                         k++;
                     }
                     if (names != null && names.Count > 0)
                         result.Add(num, names[0]);
                     else
                         result.Add(num, string.Empty);
-                }
+                });
+            }
+            catch (Exception ex)
+            {
+                string message = $"Exception in Class = ProcessingEngine, Method = Process, Message = {ex.Message}";
+                _logger.LogError(message, ex.ToString());
             }
             return result;
         }
 
-        private List<string> GetDictionaryNames()
+        private async Task<List<string>> GetDictionaryNames()
         {
-            var FullFileName = AppDomain.CurrentDomain.BaseDirectory + DictionaryNames;
-             
-            List<string> companies = _fileService.ReadFile(FullFileName);
-            return companies;
+            List<string> names = new List<string>();
+            try
+            {
+                var FullFileName = AppDomain.CurrentDomain.BaseDirectory + DictionaryNames;
+                names = await _fileService.ReadFile(FullFileName);
+            }
+            catch (Exception ex)
+            {
+                string message = $"Exception in Class = ProcessingEngine, Method = GetDictionaryNames, Message = {ex.Message}";
+                _logger.LogError(message, ex.ToString());
+            }
+
+            return names;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace PhoneMarketing
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var builder = new ConfigurationBuilder()
                         .SetBasePath(Directory.GetCurrentDirectory())
@@ -26,11 +26,10 @@ namespace PhoneMarketing
                 .BuildServiceProvider();
 
             
-
-            var phoneNumbers = serviceProvider.GetService<IInputService>()?.GetData();
+            List<string> phoneNumbers = await serviceProvider.GetService<IInputService>()!.GetData();
             if (phoneNumbers != null)
             {
-                var result = serviceProvider.GetService<IProcessingEngine>()?.Process(phoneNumbers);
+                var result = await serviceProvider.GetService<IProcessingEngine>()!.Process(phoneNumbers);
 
                 if (result != null)
                 {
